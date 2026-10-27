@@ -1,0 +1,87 @@
+/* Layout: a single scrolling "reel" — phone-framed demo up top, then the pipeline as a numbered timeline, styles strip, box contents, pricing card, FAQ */
+:root{
+  --bg:#F5F3EE; --surface:#FFFFFF; --ink:#141414; --muted:#6C665D; --line:#E2DDD3; --signal:#E3261B; --signal-ink:#FFFFFF; --chip:#EEEAE2;
+  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121212; --surface:#1B1B1A; --ink:#F2EFE9; --muted:#A39D93; --line:#2C2B29; --signal:#FF4A3D; --signal-ink:#140504; --chip:#24231F; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121212; --surface:#1B1B1A; --ink:#F2EFE9; --muted:#A39D93; --line:#2C2B29; --signal:#FF4A3D; --signal-ink:#140504; --chip:#24231F; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); font:400 17px/1.6 var(--body); padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px; margin:0 auto}
+a{color:inherit}
+.mono{font-family:var(--mono); font-size:13px; letter-spacing:.02em; color:var(--muted)}
+h1,h2,h3{font-family:var(--display); text-wrap:balance; margin:0; letter-spacing:-.02em}
+h1{font-size:clamp(44px, 7vw, 84px); line-height:.98; font-weight:800}
+h2{font-size:clamp(30px, 4.2vw, 46px); line-height:1.05; font-weight:800}
+h3{font-size:21px; font-weight:700; letter-spacing:-.01em}
+p{margin:0}
+.hand{color:var(--signal)}
+section{padding-block:72px; border-top:1px solid var(--line)}
+/* hero */
+.hero{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:56px; align-items:center; padding-block:56px 72px; border-top:0}
+.hero .lede{font-size:20px; color:var(--muted); max-width:34ch; margin-top:22px}
+.hero .ctas{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:30px}
+.btn{display:inline-flex; align-items:center; gap:10px; font:600 17px var(--body); padding:15px 24px; border-radius:999px; text-decoration:none; border:2px solid var(--ink); cursor:pointer}
+.btn.primary{background:var(--signal); border-color:var(--signal); color:var(--signal-ink)}
+.btn:focus-visible{outline:3px solid var(--ink); outline-offset:3px}
+.btn[aria-disabled="true"]{opacity:.85; cursor:default}
+.prompt{margin-top:34px; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 16px; font-family:var(--mono); font-size:14px; display:flex; gap:10px; align-items:baseline; max-width:520px}
+.prompt b{color:var(--signal); font-weight:500}
+.phone{justify-self:center; width:min(320px,100%); aspect-ratio:9/16; max-width:100%; border-radius:38px; background:#0B0B0B; padding:10px; box-shadow:0 30px 70px rgba(0,0,0,.18)}
+.phone video{width:100%; height:100%; object-fit:cover; border-radius:29px; display:block; background:#000}
+.tag{display:inline-block; font-family:var(--mono); font-size:12px; padding:5px 10px; border-radius:999px; background:var(--chip); color:var(--muted)}
+/* pipeline */
+.steps{list-style:none; padding:0; margin:40px 0 0; display:grid; gap:0}
+.steps li{display:grid; grid-template-columns:72px minmax(0,1fr) minmax(0,1.2fr); gap:20px; padding:22px 0; border-top:1px dashed var(--line); align-items:baseline}
+.steps .n{font-family:var(--mono); color:var(--signal); font-size:14px}
+.steps p{color:var(--muted)}
+/* styles */
+.styles{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-top:36px}
+.styles figure{margin:0}
+.styles img{width:100%; border-radius:16px; border:1px solid var(--line); display:block; aspect-ratio:9/16; object-fit:cover}
+.styles figcaption{margin-top:10px; font-size:15px} .styles figcaption span{display:block; color:var(--muted); font-size:14px}
+/* box */
+.box{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 40px; margin-top:34px}
+.box div{padding:16px 0; border-top:1px solid var(--line)}
+.box p{color:var(--muted); font-size:16px; margin-top:4px}
+/* pricing */
+.price-wrap{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:48px; align-items:start}
+.card{background:var(--surface); border:2px solid var(--ink); border-radius:24px; padding:30px; display:grid; gap:18px}
+.amount{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.amount strong{font-family:var(--display); font-size:64px; line-height:1; letter-spacing:-.03em}
+.amount s{color:var(--muted); font-size:22px}
+.card ul{margin:0; padding-left:20px; color:var(--ink)} .card li{margin:4px 0}
+.costs{width:100%; border-collapse:collapse; font-size:16px; margin-top:22px}
+.costs td{padding:12px 0; border-top:1px solid var(--line); vertical-align:top}
+.costs td:last-child{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; padding-left:14px}
+.note{color:var(--muted); font-size:15px}
+/* faq */
+details{border-top:1px solid var(--line); padding:18px 0}
+summary{cursor:pointer; font-weight:600; font-size:18px; list-style:none} summary::-webkit-details-marker{display:none}
+summary::before{content:"+"; font-family:var(--mono); color:var(--signal); display:inline-block; width:26px}
+details[open] summary::before{content:"–"}
+details p{color:var(--muted); margin-top:10px; max-width:70ch; padding-left:26px}
+footer{padding-block:40px 60px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr; gap:36px} .phone{width:min(280px,100%)}
+  .steps li{grid-template-columns:44px minmax(0,1fr)} .steps li p{grid-column:2}
+  .styles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .box,.price-wrap{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+/* policy pages */
+.doc{max-width:760px; margin:0 auto; padding-block:40px 20px}
+.doc h1{font-size:clamp(36px,5vw,54px)}
+.doc h2{font-size:24px; margin-top:34px}
+.doc p,.doc li{color:var(--ink); margin-top:12px}
+.doc ul{padding-left:22px}
+.doc .updated{color:var(--muted); margin-top:10px; font-size:15px}
+.top{display:flex; justify-content:space-between; align-items:center; padding-block:22px; gap:16px; flex-wrap:wrap}
+.top a{text-decoration:none; font-family:var(--display); font-weight:800; font-size:20px}
+.top nav{display:flex; gap:18px; font-size:15px; flex-wrap:wrap} .top nav a{font:500 15px var(--body); color:var(--muted)}
+footer nav{display:flex; gap:18px; flex-wrap:wrap} footer nav a{color:var(--muted)}
+.card .tag{justify-self:start}
