@@ -12,10 +12,9 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
 <style>
-  .steps{counter-reset:s;list-style:none;padding:0;margin:22px 0}
-  .steps li{counter-increment:s;position:relative;padding:4px 0 14px 46px}
-  .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:currentColor;color:inherit}
-  .steps li::before{background:none;border:2px solid currentColor}
+  .dl{counter-reset:s;list-style:none;padding:0;margin:22px 0}
+  .dl li{counter-increment:s;position:relative;padding:4px 0 12px 46px;margin:0}
+  .dl li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-weight:700;font-size:14px}
   .cta{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 8px}
 </style>
 </head>
@@ -27,7 +26,7 @@
       <h1>You're in. Thanks for buying Reel Engine!</h1>
       <p id="mailline">Your receipt, licence key and download links are on their way to your email.</p>
       <h2>Get your download</h2>
-      <ol class="steps">
+      <ol class="dl">
         <li>Click <strong>Open my downloads</strong> below and enter the email you paid with.</li>
         <li>Open the <strong>access link</strong> we email you. (Or skip this: open the email <em>"Your payment to Shortsmith was successful"</em> and click <strong>Access in your customer portal</strong>.)</li>
         <li>Under <strong>License Keys &amp; Downloads</strong>, click <strong>View</strong> next to "Reel Engine download" and download the zip for your computer: <strong>Windows</strong> or <strong>Mac</strong>.</li>
