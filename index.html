@@ -109,6 +109,7 @@
       <details><summary>Does it work on Mac?</summary><p>Yes. You get both versions: Windows 10/11 and macOS 13 or newer, each with its own installer and nightly scheduler.</p></details>
       <details><summary>What accounts do I need for posting?</summary><p>A free Buffer account with your Instagram Professional (Creator or Business) account and YouTube channel connected, plus a free GitHub account that hosts the videos for Buffer to pick up. No Facebook developer app and no YouTube API audit.</p></details>
       <details><summary>Does my PC need to stay on?</summary><p>Only while the nightly batch makes the reels (about 20–40 minutes per reel). Buffer posts them later at your times, with your PC off.</p></details>
+      <details><summary>Where do I download it after paying?</summary><p>Right after payment you land on a thank-you page with an <strong>Open my downloads</strong> button. You'll also get an email titled <em>"Your payment to Shortsmith was successful"</em>: click <strong>Access in your customer portal</strong>, then <strong>View</strong> next to "Reel Engine download" to get the Windows or Mac zip. Your licence key arrives in a separate email. Lost the emails? <a href="https://customer.dodopayments.com/login/bus_0NsHbylpTbf1NpQb2U5pr" target="_blank" rel="noopener">Open the customer portal</a> and enter the email you paid with.</p></details>
       <details><summary>What if it doesn't work for me?</summary><p>Email us and we'll help you get it running. If we can't, you get a full refund within 7 days of purchase. See the <a href="refund.html">refund policy</a>.</p></details>
       <details><summary>Can I use it for clients?</summary><p>Yes. Videos you make are yours. The license covers one creator or a team of up to 3; you can't resell or share the system itself.</p></details>
       <details><summary>What about the Remotion license?</summary><p>Remotion, the animation engine, is free for individuals and companies of up to 3 people. Larger companies need their own Remotion license.</p></details>
@@ -126,7 +127,7 @@
 
 <script>
 // Set the checkout link here once the product is live.
-const CHECKOUT_URL = "https://checkout.dodopayments.com/buy/pdt_0NsdIszzQNCjHw8HUu0WQ?quantity=1";
+const CHECKOUT_URL = "https://checkout.dodopayments.com/buy/pdt_0NsdIszzQNCjHw8HUu0WQ?quantity=1&redirect_url=" + encodeURIComponent("https://dm-1324.github.io/thanks.html");
 const live = /^https:\/\//.test(CHECKOUT_URL);
 for (const id of ["buy", "buy2"]) {
   const a = document.getElementById(id);

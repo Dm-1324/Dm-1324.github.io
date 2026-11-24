@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Thank you · Shortsmith</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .steps{counter-reset:s;list-style:none;padding:0;margin:22px 0}
+  .steps li{counter-increment:s;position:relative;padding:4px 0 14px 46px}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:currentColor;color:inherit}
+  .steps li::before{background:none;border:2px solid currentColor}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="brand" href="index.html"><img src="logo.svg" alt="" width="30" height="30">Shortsmith</a><nav><a href="index.html#pricing">Pricing</a><a href="refund.html">Refunds</a><a href="index.html#contact">Contact</a></nav></div>
+  <main class="doc">
+    <div id="ok">
+      <h1>You're in. Thanks for buying Reel Engine!</h1>
+      <p id="mailline">Your receipt, licence key and download links are on their way to your email.</p>
+      <h2>Get your download</h2>
+      <ol class="steps">
+        <li>Click <strong>Open my downloads</strong> below and enter the email you paid with.</li>
+        <li>Open the <strong>access link</strong> we email you. (Or skip this: open the email <em>"Your payment to Shortsmith was successful"</em> and click <strong>Access in your customer portal</strong>.)</li>
+        <li>Under <strong>License Keys &amp; Downloads</strong>, click <strong>View</strong> next to "Reel Engine download" and download the zip for your computer: <strong>Windows</strong> or <strong>Mac</strong>.</li>
+        <li>Unzip it and open <strong>Start Here.html</strong>. It walks you through setup and your first reel.</li>
+      </ol>
+      <div class="cta">
+        <a class="btn primary" href="https://customer.dodopayments.com/login/bus_0NsHbylpTbf1NpQb2U5pr" target="_blank" rel="noopener">Open my downloads</a>
+        <a class="btn" href="mailto:reelstudio.helpdesk@gmail.com">Need help? Email us</a>
+      </div>
+      <p class="note">Your licence key is in the email <em>"Your Reel Engine … license key from Shortsmith"</em>. It's for one person and works on up to 2 computers. Keep it safe.</p>
+      <p class="note">No email after 10 minutes? Check spam and Promotions, then write to <a href="mailto:reelstudio.helpdesk@gmail.com">reelstudio.helpdesk@gmail.com</a>.</p>
+    </div>
+    <div id="fail" hidden>
+      <h1>The payment didn't go through</h1>
+      <p>Nothing was charged, or any hold will be released by your bank. You can <a href="index.html#pricing">try again</a>, or email <a href="mailto:reelstudio.helpdesk@gmail.com">reelstudio.helpdesk@gmail.com</a> if it keeps failing.</p>
+    </div>
+  </main>
+  <footer><span>© 2026 Shortsmith · operated by D. Malik, India</span><nav><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refunds</a><a href="mailto:reelstudio.helpdesk@gmail.com">reelstudio.helpdesk@gmail.com</a></nav></footer>
+</div>
+<script>
+const q = new URLSearchParams(location.search);
+const status = q.get("status");
+if (status && !/^(succeeded|success|paid|processing)$/i.test(status)) {
+  document.getElementById("ok").hidden = true;
+  document.getElementById("fail").hidden = false;
+}
+const email = q.get("email");
+if (email) {
+  const line = document.getElementById("mailline");
+  line.textContent = "Your receipt, licence key and download links are on their way to ";
+  const b = document.createElement("strong"); b.textContent = email; line.appendChild(b); line.append(".");
+}
+</script>
+</body>
+</html>
